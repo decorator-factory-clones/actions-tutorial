@@ -16,8 +16,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: what does parcel install hmm...
+      - name: minify jabascript
         run: |
-          npm i parcel@2
-          npm list --depth=69
-
+          time npm i -D @swc/cli
+          time npx swc ./banana.js
+          cat ./banana.js
