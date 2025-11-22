@@ -16,5 +16,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: Output npm version
-        run: npm --version
+      - name: npm list
+        run: npm list
+
+      - name: npm list (global)
+        run: npm list --global
