@@ -18,6 +18,8 @@ jobs:
 
       - name: minify javascript
         run: |
+          npm root -g
+
           # @swc/core already installed in Github Actions :^)
           NODE_PATH=$(npm root -g) node <<EOF
             const fs = require("node:fs");
