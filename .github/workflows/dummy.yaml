@@ -18,6 +18,7 @@ jobs:
 
       - name: minify javascript
         run: |
+          npm link @swc/core  # already installed in Github Actions
           time node <<EOF
             const fs = require("node:fs");
             const source = fs.readFileSync("banana.js");
