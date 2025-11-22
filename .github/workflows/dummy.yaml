@@ -16,8 +16,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: npm list
-        run: npm list
+      - name: what does parcel install hmm...
+        run: |
+          npm i parcel@2
+          npm list --depth=69
 
-      - name: npm list (global)
-        run: npm list --global
