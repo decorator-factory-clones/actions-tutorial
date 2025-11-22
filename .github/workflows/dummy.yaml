@@ -16,8 +16,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
 
-      - name: minify jabascript
+      - name: minify javascript
         run: |
-          time npm i -D @swc/cli
-          time npx swc ./banana.js
+          time node <<EOF
+            const fs = require("node:fs");
+            const source = fs.readFileSync("banana.js");
+            const minified = require("@swc/core").minifySync(source, {module: true}).code;
+            fs.writeFileSync("banana.js", minified);
+          EOF
           cat ./banana.js
