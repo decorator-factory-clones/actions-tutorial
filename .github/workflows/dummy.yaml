@@ -18,10 +18,8 @@ jobs:
 
       - name: minify javascript
         run: |
-          npm root -g
-
           # @swc/core already installed in Github Actions :^)
-          NODE_PATH=$(npm root -g) node <<EOF
+          NODE_PATH=/usr/local/lib/node_modules node <<EOF
             const fs = require("node:fs");
             const source = fs.readFileSync("banana.js");
             const minified = require("@swc/core").minifySync(source, {module: true}).code;
