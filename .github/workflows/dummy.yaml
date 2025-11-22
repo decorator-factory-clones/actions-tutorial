@@ -18,6 +18,10 @@ jobs:
 
       - name: minify javascript
         run: |
+          npm config get prefix
+
+          ls $(npm config get prefix)/bin/
+
           npm link @swc/core  # already installed in Github Actions
           time node <<EOF
             const fs = require("node:fs");
